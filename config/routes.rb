@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, class_name: "Jinda::User"
   # start jiinda method routes
   jinda_methods = ['pending','status','search','doc','logs','ajax_notice']
   jinda_methods += ['init','run','run_do','run_form','end_form','error_logs', 'notice_logs', 'cancel']
