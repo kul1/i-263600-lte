@@ -1,5 +1,5 @@
 # encoding: utf-8
-class SessionsController < ApplicationController
+class Devise::SessionsController < ApplicationController
   def new
     @title= 'Sign In'
   end
