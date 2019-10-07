@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    devise_for 'jinda/user'
+   #  devise_for 'jinda/user', controllers: { sessions: 'sessions'}
 
   # start jiinda method routes
   jinda_methods = ['pending','status','search','doc','logs','ajax_notice']
@@ -11,10 +11,20 @@ Rails.application.routes.draw do
   post '/jinda/end_form' => 'jinda#end_form'
   mount Ckeditor::Engine => '/ckeditor'
   # end jinda method routes
-  post '/auth/:provider/callback' => 'sessions#create'
-  get '/auth/:provider/callback' => 'sessions#create'
-  get '/auth/failure' => 'sessions#destroy'
-  get '/logout' => 'sessions#destroy', :as => 'logout'
+  
+  devise_for :user , path: 'jinda/user', class_name: 'Jinda::User', controllers: {sessions: 'jinda/sessions', omniauth_callbacks: 'jinda/sessions'}
+
+  # devise_for 'jinda/user', skip: :all
+  # devise_scope 'jinda/user' do
+
+  # post '/auth/:provider/callback' => 'jinda/sessions#create'
+  # get '/auth/:provider/callback' => 'jinda/sessions#create'
+  # post '/auth/:provider' => 'jinda/sessions#create'
+  # get '/auth/:provider' => 'jinda/sessions#create'
+  # get '/auth/failure' => 'jinda/sessions#destroy'
+  # get '/logout' => 'jinda/sessions#destroy', :as => 'logout'
+  # end
+
   get '/articles/my' => 'articles/my'
   get '/articles/my/destroy' => 'articles#destroy'
   resources :articles

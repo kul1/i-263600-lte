@@ -2,8 +2,8 @@ class Jinda::User
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable,:omniauthable,
+         :recoverable, :rememberable, :validatable, :omniauth_providers => [:facebook]
 
   ## Database authenticatable
   field :email,              type: String, default: ""

@@ -1,7 +1,13 @@
 # encoding: utf-8
-class Devise::SessionsController < ApplicationController
+class Jinda::SessionsController < Devise::OmniauthCallbacksController
   def new
     @title= 'Sign In'
+  end
+  def passthru
+    create
+  end
+  def facebook
+    create
   end
 
   def failure
@@ -13,6 +19,7 @@ class Devise::SessionsController < ApplicationController
   # see app/views/sessions/new.html.erb for sample
   def create
     auth = request.env["omniauth.auth"]
+    binding.pry
     user = Jinda::User.from_omniauth(auth)
     session[:user_id] = user.id
     if params.permit[:remember_me]

@@ -22,5 +22,5 @@
           = link_to "Refresh", "#", :onclick=>"window.location.replace('/')"
         - if !login?    
           .login-box
-            = link_to image_tag( 'facebook-continue-button.png'), '/auth/facebook', rel: "external", class: "facebook-connect.social-button" 
-            = link_to image_tag( 'google-continue-button.png'), '/auth/google_oauth2', rel: "external", class: "google-connect.social-button"
+            = link_to image_tag( 'facebook-continue-button.png'), '/jinda/user/auth/facebook', rel: "external", class: "facebook-connect.social-button" 
+            = link_to image_tag( 'google-continue-button.png'), '/jinda/user/auth/google_oauth2', rel: "external", class: "google-connect.social-button"

@@ -467,6 +467,7 @@ DEPENDENCIES
   mongoid-paperclip
   nokogiri
   normalize-rails
+  omniauth
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-identity
@@ -492,4 +493,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.0
+   2.0.2

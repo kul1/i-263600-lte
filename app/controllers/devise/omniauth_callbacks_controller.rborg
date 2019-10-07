@@ -1,0 +1,7 @@
+class Devise::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    binding.pry
+  def facebook
+     @user = Jinda::User.from_omniauth(request.env["omniauth.auth"])
+     sign_in_and_redirect @user      
+  end
+end
