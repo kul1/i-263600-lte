@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :user , path: 'jinda/user', class_name: 'Jinda::User', controllers: {sessions: 'jinda/sessions', omniauth_callbacks: 'jinda/sessions'}
    #  devise_for 'jinda/user', controllers: { sessions: 'sessions'}
 
   # start jiinda method routes
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   # end jinda method routes
   
-  devise_for :user , path: 'jinda/user', class_name: 'Jinda::User', controllers: {sessions: 'jinda/sessions', omniauth_callbacks: 'jinda/sessions'}
 
   # devise_for 'jinda/user', skip: :all
   # devise_scope 'jinda/user' do
